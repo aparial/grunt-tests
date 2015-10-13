@@ -26,7 +26,7 @@ describe('ForecastWeather Public API Test',function() {
       async.each(weatherData.simpleWeatherArray() , function(cityData, callback) {
         it('you should be able to get forecast weather for ' + cityData.name + ' from this API Proxy.', function(done) {
            var options = {
-                    url: cityData.url, //'https://testmyapi-test.apigee.net/weathergrunt/apigee/forecastrss?w=2502265',
+                    url: cityData.url, //'https://aparial-prod.apigee.net/weathergrunt/apigee/forecastrss?w=2502265',
                     headers: {
                       'User-Agent': 'request'
                     }
@@ -45,7 +45,7 @@ describe('ForecastWeather Public API Test',function() {
     async.each(weatherData.simpleFormatArray(), function(cityData, callback){
         it('you should be able to get forecast weather for ' + cityData.name + ' from this API Proxy in ' + cityData.contentType, function(done) {
          var options = {
-          url: cityData.url,//'https://testmyapi-test.apigee.net/weathergrunt/apigee/forecastrss?w=2502265',
+          url: cityData.url,//'https://aparial-prod.apigee.net/weathergrunt/apigee/forecastrss?w=2502265',
           headers: {
             'User-Agent': 'request',
             'Accept' : cityData.contentType//'text/xml;charset=UTF-8'
@@ -79,7 +79,7 @@ describe('ForecastWeather Public API Test',function() {
   })
 
   it('you should be able to retrieve image with content-type header image/jpg', function(done) {
-    chai.request('https://testmyapi-test.apigee.net/weathergrunt/images')
+    chai.request('https://aparial-prod.apigee.net/weathergrunt/images')
     .get('/tree.jpg')
     .set('test', '123')
     .end(function (err, res) {
@@ -95,7 +95,7 @@ describe('ForecastWeather Public API Test',function() {
   //Disabled by default (JavaCallout Policy)
   /*    describe('you should be able to make a call to resource which executes a JavaCallout', function() {
         it('with a response "Payload set by a Java Callout"', function(done) {
-          chai.request('https://testmyapi-test.apigee.net/weathergrunt')
+          chai.request('https://aparial-prod.apigee.net/weathergrunt')
             .get('/javacallout')
             .res(function (res) {
               //expect(res.content).to.contain('Weather for Cali')
